@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "description": "JSDoc style comments for javascript development",
   "activationEvents": ["jsdoc:block"],
-  "repository": "https://github.com/craig-o/jsdoc",
+  "repository": "https://github.com/craig-o/atom-jsdoc",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
