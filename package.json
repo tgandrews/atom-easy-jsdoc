@@ -1,14 +1,15 @@
 {
   "name": "jsdoc",
   "main": "./lib/jsdoc",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "JSDoc style comments for javascript development",
-  "activationEvents": ["jsdoc:block"],
+  "activationEvents": [
+    "jsdoc:block"
+  ],
   "repository": "https://github.com/craig-o/atom-jsdoc",
   "license": "MIT",
   "engines": {
     "atom": ">0.50.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
