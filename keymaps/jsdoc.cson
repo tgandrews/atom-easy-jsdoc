@@ -1,2 +1,2 @@
-'.workspace':
+'.editor':
   'ctrl-c': 'jsdoc:block'
