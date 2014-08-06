@@ -28,5 +28,9 @@ function functionComment (argA, argB, argC) {
 var a = 'A';
 ```
 
+## Autocontinue
+
+Comments now are automatically continued if the user hits enter (new line event) while inside of a block (/**..etc.) or single line (//) comment. 
+
 ### Contribute
 I'll be adding features periodically, however bug fixes, feature requests, and pull requests are all welcome.
