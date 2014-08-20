@@ -1,7 +1,7 @@
 {
   "name": "jsdoc",
   "main": "./lib/jsdoc",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "JSDoc style comments for javascript development",
   "activationEvents": [
     "jsdoc:block",
