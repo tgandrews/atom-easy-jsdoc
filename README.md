@@ -4,7 +4,7 @@ Atom package for quick jsdoc comment generation.
 
 ## Usage
 
-Control-C to add comment templates.
+Control-Shift-d to add comment templates.
 
 To add comments for any piece of code, position the cursor anywhere on the line preceding the line you wish to comment on.
 ```javascript
@@ -30,7 +30,7 @@ var a = 'A';
 
 ## Autocontinue
 
-Comments now are automatically continued if the user hits enter (new line event) while inside of a block (/**..etc.) or single line (//) comment. 
+Comments now are automatically continued if the user hits enter (new line event) while inside of a block (/**..etc.) or single line (//) comment.
 
 ### Contribute
 I'll be adding features periodically, however bug fixes, feature requests, and pull requests are all welcome.
