@@ -1,2 +1,2 @@
-'.editor':
+'atom-text-editor':
   'ctrl-shift-d': 'jsdoc:block'
