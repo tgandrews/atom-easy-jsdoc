@@ -1,0 +1,4 @@
+'context-menu':
+  'atom-workspace atom-text-editor:not(.mini)': [
+    {label: 'Add a JSDoc comment', command: 'jsdoc:block'}
+  ]
