@@ -1,7 +1,7 @@
 {
   "name": "jsdoc",
   "main": "./lib/jsdoc",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "JSDoc style comments for javascript development",
   "activationCommands": {
     "atom-workspace": [
