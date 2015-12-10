@@ -1,7 +1,7 @@
 {
-  "name": "jsdoc",
+  "name": "atom-easy-jsdoc",
   "main": "./lib/jsdoc",
-  "version": "3.0.0",
+  "version": "1.0.0",
   "description": "JSDoc style comments for javascript development",
   "activationCommands": {
     "atom-workspace": [
@@ -17,7 +17,7 @@
   },
   "license": "MIT",
   "engines": {
-    "atom": ">1.0.0"
+    "atom": ">=1.0.0"
   },
   "dependencies": {}
 }
