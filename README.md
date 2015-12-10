@@ -1,6 +1,7 @@
 # jsdoc package
 
 Atom package for quick jsdoc comment generation.
+Forked from [Atom JS Doc by Craig Offutt](https://github.com/coffutt/atom-jsdoc)
 
 ## Usage
 
