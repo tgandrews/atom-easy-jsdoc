@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tgandrews/atom-jsdoc"
+    "url": "https://github.com/tgandrews/atom-easy-jsdoc"
   },
   "license": "MIT",
   "engines": {
