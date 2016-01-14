@@ -5,7 +5,7 @@ Forked from [Atom JS Doc by Craig Offutt](https://github.com/coffutt/atom-jsdoc)
 
 ## Usage
 
-Control-Shift-d to add comment templates.
+Control-Shift-d or Control-Shift-j to add comment templates.
 
 To add comments for any piece of code, position the cursor anywhere on the line preceding the line you wish to comment on.
 ```javascript
