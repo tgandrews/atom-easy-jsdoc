@@ -1,3 +1,5 @@
-## 0.1.0 - First Release
-* Every feature added
-* Every bug fixed
+## 4.2.1
+- Fix issue with keymap clashing in Linux and Windows
+
+## 4.2.0
+- First release under "new management"
