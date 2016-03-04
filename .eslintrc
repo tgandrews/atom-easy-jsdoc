@@ -1,0 +1,4 @@
+"extends":
+  - "defaults/configurations/airbnb/es6"
+"rules":
+  "no-empty-label": 0
