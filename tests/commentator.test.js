@@ -17,8 +17,7 @@ describe('Commentator', () => {
 * @returns {type} Description
 **/`;
 
-      const result = comment(code);
-      result.should.equal(doc);
+      comment(code).should.equal(doc);
     });
 
     it('should be able to create a comment with params', () => {
@@ -33,8 +32,22 @@ describe('Commentator', () => {
 * @returns {type} Description
 **/`;
 
-      const result = comment(code);
-      result.should.equal(doc);
+      comment(code).should.equal(doc);
+    });
+
+    it('should line up parameter descriptions', () => {
+      const code = 'function helloWorld(a, longParam, c) {}';
+      const doc = `/**
+* helloWorld - Description
+*
+* @param a         {type} Description
+* @param longParam {type} Description
+* @param c         {type} Description
+*
+* @returns {type} Description
+**/`;
+
+      comment(code).should.equal(doc);
     });
   });
 });
