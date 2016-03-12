@@ -49,5 +49,24 @@ describe('Commentator', () => {
 
       comment(code).should.equal(doc);
     });
+
+    it('should create a comment when on the line of the function', () => {
+      const code = `
+function somethingElse(d, e) {}
+
+function helloWorld(a, b, c) {}
+`;
+      const doc = `/**
+* helloWorld - Description
+*
+* @param a {type} Description
+* @param b {type} Description
+* @param c {type} Description
+*
+* @returns {type} Description
+**/`;
+
+      comment(code, 4).should.equal(doc);
+    });
   });
 });
