@@ -109,4 +109,36 @@ function helloWorld(a, b, c) {}
       comment(code).content.should.equal(doc);
     });
   });
+
+  describe('ES2015 functions', () => {
+    it('supports export', () => {
+      const code = `export function helloWorld(a, b, c) {}`;
+      const doc = `/**
+ * helloWorld - Description
+ *
+ * @param a {type} Description
+ * @param b {type} Description
+ * @param c {type} Description
+ *
+ * @returns {type} Description
+ */`;
+
+      comment(code).content.should.equal(doc);
+    });
+
+    it('supports default export', () => {
+      const code = `export default function helloWorld(a, b, c) {}`;
+      const doc = `/**
+ * helloWorld - Description
+ *
+ * @param a {type} Description
+ * @param b {type} Description
+ * @param c {type} Description
+ *
+ * @returns {type} Description
+ */`;
+
+      comment(code).content.should.equal(doc);
+    });
+  });
 });
