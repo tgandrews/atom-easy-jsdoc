@@ -94,5 +94,10 @@ function helloWorld(a, b, c) {}
 `;
       comment(code, 3).location.line.should.equal(3);
     });
+
+    it('with the same indentation as the function', () => {
+      const code = `      function helloWorld(a, b, c) {}`;
+      comment(code).location.column.should.equal(6);
+    });
   });
 });
