@@ -5,10 +5,6 @@ chai.should();
 
 describe('Commentator', () => {
   describe('comment', () => {
-    it('should exist', () => {
-      comment.should.be.a('function');
-    });
-
     it('should be able to create a comment without params', () => {
       const code = `function helloWorld () {}`;
       const doc = `/**
@@ -17,7 +13,7 @@ describe('Commentator', () => {
  * @returns {type} Description
  */`;
 
-      comment(code).should.equal(doc);
+      comment(code).content.should.equal(doc);
     });
 
     it('should be able to create a comment with params', () => {
@@ -32,7 +28,7 @@ describe('Commentator', () => {
  * @returns {type} Description
  */`;
 
-      comment(code).should.equal(doc);
+      comment(code).content.should.equal(doc);
     });
 
     it('should line up parameter descriptions', () => {
@@ -47,7 +43,7 @@ describe('Commentator', () => {
  * @returns {type} Description
  */`;
 
-      comment(code).should.equal(doc);
+      comment(code).content.should.equal(doc);
     });
 
     it('should create a comment when on the line of the function', () => {
@@ -66,7 +62,7 @@ function helloWorld(a, b, c) {}
  * @returns {type} Description
  */`;
 
-      comment(code, 4).should.equal(doc);
+      comment(code, 4).content.should.equal(doc);
     });
 
     it('should create a comment when on the line above a function', () => {
@@ -85,7 +81,18 @@ function helloWorld(a, b, c) {}
  * @returns {type} Description
  */`;
 
-      comment(code, 3).should.equal(doc);
+      comment(code, 3).content.should.equal(doc);
+    });
+  });
+
+  describe('comment location', () => {
+    it('above the line of the func', () => {
+      const code = `
+function somethingElse(d, e) {}
+
+function helloWorld(a, b, c) {}
+`;
+      comment(code, 3).location.line.should.equal(3);
     });
   });
 });
