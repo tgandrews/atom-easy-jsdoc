@@ -12,10 +12,10 @@ describe('Commentator', () => {
     it('should be able to create a comment without params', () => {
       const code = `function helloWorld () {}`;
       const doc = `/**
-* helloWorld - Description
-*
-* @returns {type} Description
-**/`;
+ * helloWorld - Description
+ *
+ * @returns {type} Description
+ */`;
 
       comment(code).should.equal(doc);
     });
@@ -23,14 +23,14 @@ describe('Commentator', () => {
     it('should be able to create a comment with params', () => {
       const code = `function helloWorld (a, b, c) {}`;
       const doc = `/**
-* helloWorld - Description
-*
-* @param a {type} Description
-* @param b {type} Description
-* @param c {type} Description
-*
-* @returns {type} Description
-**/`;
+ * helloWorld - Description
+ *
+ * @param a {type} Description
+ * @param b {type} Description
+ * @param c {type} Description
+ *
+ * @returns {type} Description
+ */`;
 
       comment(code).should.equal(doc);
     });
@@ -38,14 +38,14 @@ describe('Commentator', () => {
     it('should line up parameter descriptions', () => {
       const code = 'function helloWorld(a, longParam, c) {}';
       const doc = `/**
-* helloWorld - Description
-*
-* @param a         {type} Description
-* @param longParam {type} Description
-* @param c         {type} Description
-*
-* @returns {type} Description
-**/`;
+ * helloWorld - Description
+ *
+ * @param a         {type} Description
+ * @param longParam {type} Description
+ * @param c         {type} Description
+ *
+ * @returns {type} Description
+ */`;
 
       comment(code).should.equal(doc);
     });
@@ -57,14 +57,14 @@ function somethingElse(d, e) {}
 function helloWorld(a, b, c) {}
 `;
       const doc = `/**
-* helloWorld - Description
-*
-* @param a {type} Description
-* @param b {type} Description
-* @param c {type} Description
-*
-* @returns {type} Description
-**/`;
+ * helloWorld - Description
+ *
+ * @param a {type} Description
+ * @param b {type} Description
+ * @param c {type} Description
+ *
+ * @returns {type} Description
+ */`;
 
       comment(code, 4).should.equal(doc);
     });
@@ -76,14 +76,14 @@ function somethingElse(d, e) {}
 function helloWorld(a, b, c) {}
 `;
       const doc = `/**
-* helloWorld - Description
-*
-* @param a {type} Description
-* @param b {type} Description
-* @param c {type} Description
-*
-* @returns {type} Description
-**/`;
+ * helloWorld - Description
+ *
+ * @param a {type} Description
+ * @param b {type} Description
+ * @param c {type} Description
+ *
+ * @returns {type} Description
+ */`;
 
       comment(code, 3).should.equal(doc);
     });
