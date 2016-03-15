@@ -92,12 +92,21 @@ function somethingElse(d, e) {}
 
 function helloWorld(a, b, c) {}
 `;
-      comment(code, 3).location.line.should.equal(3);
+      comment(code, 3).line.should.equal(3);
     });
 
     it('with the same indentation as the function', () => {
       const code = `      function helloWorld(a, b, c) {}`;
-      comment(code).location.column.should.equal(6);
+      const doc = `      /**
+       * helloWorld - Description
+       *
+       * @param a {type} Description
+       * @param b {type} Description
+       * @param c {type} Description
+       *
+       * @returns {type} Description
+       */`;
+      comment(code).content.should.equal(doc);
     });
   });
 });
