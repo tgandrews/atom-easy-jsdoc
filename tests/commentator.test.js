@@ -6,7 +6,7 @@ chai.should();
 describe('Commentator', () => {
   describe('comment', () => {
     it('should be able to create a comment without params', () => {
-      const code = `function helloWorld () {}`;
+      const code = 'function helloWorld () {}';
       const doc = `/**
  * helloWorld - Description
  *
@@ -17,7 +17,7 @@ describe('Commentator', () => {
     });
 
     it('should be able to create a comment with params', () => {
-      const code = `function helloWorld (a, b, c) {}`;
+      const code = 'function helloWorld (a, b, c) {}';
       const doc = `/**
  * helloWorld - Description
  *
@@ -96,7 +96,7 @@ function helloWorld(a, b, c) {}
     });
 
     it('with the same indentation as the function', () => {
-      const code = `      function helloWorld(a, b, c) {}`;
+      const code = '      function helloWorld(a, b, c) {}';
       const doc = `      /**
        * helloWorld - Description
        *
@@ -112,7 +112,7 @@ function helloWorld(a, b, c) {}
 
   describe('ES2015 functions', () => {
     it('supports export', () => {
-      const code = `export function helloWorld(a, b, c) {}`;
+      const code = 'export function helloWorld(a, b, c) {}';
       const doc = `/**
  * helloWorld - Description
  *
@@ -127,7 +127,7 @@ function helloWorld(a, b, c) {}
     });
 
     it('supports default export', () => {
-      const code = `export default function helloWorld(a, b, c) {}`;
+      const code = 'export default function helloWorld(a, b, c) {}';
       const doc = `/**
  * helloWorld - Description
  *
