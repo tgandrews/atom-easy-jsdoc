@@ -110,7 +110,7 @@ function helloWorld(a, b, c) {}
     });
   });
 
-  describe('ES2015 functions', () => {
+  describe('ES2015 features', () => {
     it('supports export', () => {
       const code = 'export function helloWorld(a, b, c) {}';
       const doc = `/**
@@ -134,6 +134,19 @@ function helloWorld(a, b, c) {}
  * @param {type} a Description
  * @param {type} b Description
  * @param {type} c Description
+ *
+ * @returns {type} Description
+ */`;
+
+      comment(code).content.should.equal(doc);
+    });
+
+    it('supports default values', () => {
+      const code = 'function helloWorld(a = \'something\') {}';
+      const doc = `/**
+ * helloWorld - Description
+ *
+ * @param {type} [a=something] Description
  *
  * @returns {type} Description
  */`;
