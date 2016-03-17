@@ -44,5 +44,11 @@ describe('Comment Parser', () => {
       const line = 'var a = "/**"';
       parse(line).should.equal('');
     });
+
+    it('should continue comments where that have been indented multiple times', () => {
+      parse('\t\t* hello').should.equal('*');
+      parse('\t\t/** hello').should.equal(' *');
+      parse('\t\t// hello').should.equal('//');
+    });
   });
 });
