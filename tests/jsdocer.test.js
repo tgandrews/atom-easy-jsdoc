@@ -167,5 +167,18 @@ function helloWorld(a, b, c) {}
  */`;
       comment(code).content.should.equal(doc);
     });
+
+    it('supports rest arguments', () => {
+      const code = 'function helloWorld(a, ...b) {}';
+      const doc = `/**
+ * helloWorld - Description
+ *
+ * @param {type}  a Description
+ * @param {Array} b Description
+ *
+ * @returns {type} Description
+ */`;
+      comment(code).content.should.equal(doc);
+    });
   });
 });
