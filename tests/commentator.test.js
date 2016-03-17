@@ -21,9 +21,9 @@ describe('Commentator', () => {
       const doc = `/**
  * helloWorld - Description
  *
- * @param a {type} Description
- * @param b {type} Description
- * @param c {type} Description
+ * @param {type} a Description
+ * @param {type} b Description
+ * @param {type} c Description
  *
  * @returns {type} Description
  */`;
@@ -36,9 +36,9 @@ describe('Commentator', () => {
       const doc = `/**
  * helloWorld - Description
  *
- * @param a         {type} Description
- * @param longParam {type} Description
- * @param c         {type} Description
+ * @param {type} a         Description
+ * @param {type} longParam Description
+ * @param {type} c         Description
  *
  * @returns {type} Description
  */`;
@@ -55,9 +55,9 @@ function helloWorld(a, b, c) {}
       const doc = `/**
  * helloWorld - Description
  *
- * @param a {type} Description
- * @param b {type} Description
- * @param c {type} Description
+ * @param {type} a Description
+ * @param {type} b Description
+ * @param {type} c Description
  *
  * @returns {type} Description
  */`;
@@ -74,9 +74,9 @@ function helloWorld(a, b, c) {}
       const doc = `/**
  * helloWorld - Description
  *
- * @param a {type} Description
- * @param b {type} Description
- * @param c {type} Description
+ * @param {type} a Description
+ * @param {type} b Description
+ * @param {type} c Description
  *
  * @returns {type} Description
  */`;
@@ -100,9 +100,9 @@ function helloWorld(a, b, c) {}
       const doc = `      /**
        * helloWorld - Description
        *
-       * @param a {type} Description
-       * @param b {type} Description
-       * @param c {type} Description
+       * @param {type} a Description
+       * @param {type} b Description
+       * @param {type} c Description
        *
        * @returns {type} Description
        */`;
@@ -116,9 +116,9 @@ function helloWorld(a, b, c) {}
       const doc = `/**
  * helloWorld - Description
  *
- * @param a {type} Description
- * @param b {type} Description
- * @param c {type} Description
+ * @param {type} a Description
+ * @param {type} b Description
+ * @param {type} c Description
  *
  * @returns {type} Description
  */`;
@@ -131,9 +131,9 @@ function helloWorld(a, b, c) {}
       const doc = `/**
  * helloWorld - Description
  *
- * @param a {type} Description
- * @param b {type} Description
- * @param c {type} Description
+ * @param {type} a Description
+ * @param {type} b Description
+ * @param {type} c Description
  *
  * @returns {type} Description
  */`;
