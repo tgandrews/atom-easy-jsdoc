@@ -1,4 +1,4 @@
-import { comment } from '../lib/commentator';
+import { comment } from '../lib/jsdocer';
 import chai from 'chai';
 
 chai.should();
