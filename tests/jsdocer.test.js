@@ -153,5 +153,19 @@ function helloWorld(a, b, c) {}
 
       comment(code).content.should.equal(doc);
     });
+
+    it('supports argument destructuring', () => {
+      const code = 'function helloWorld({ a, b }) {}';
+      const doc = `/**
+ * helloWorld - Description
+ *
+ * @param {Object} Unknown   Description
+ * @param {type}   Unknown.a Description
+ * @param {type}   Unknown.b Description
+ *
+ * @returns {type} Description
+ */`;
+      comment(code).content.should.equal(doc);
+    });
   });
 });
