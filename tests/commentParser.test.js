@@ -6,28 +6,43 @@ chai.should();
 describe('Comment Parser', () => {
   describe('parse', () => {
     it('should continue a block comment start', () => {
-      const comment = '/** Here is my amazing comment';
-      parse(comment).should.equal(' *');
+      const line = '/** Here is my amazing comment';
+      parse(line).should.equal(' *');
     });
 
     it('should continue a block comment', () => {
-      const comment = ' * and here is continues';
-      parse(comment).should.equal('*');
+      const line = ' * and here is continues';
+      parse(line).should.equal('*');
     });
 
     it('should continue a line comment', () => {
-      const comment = '// here is some comment';
-      parse(comment).should.equal('//');
+      const line = '// here is some comment';
+      parse(line).should.equal('//');
     });
 
     it('should not continue after a block comment is ended', () => {
-      const comment = '*/';
-      parse(comment).should.equal('');
+      const line = '*/';
+      parse(line).should.equal('');
     });
 
     it('should not continue if a block comment closes and opens on the same line', () => {
-      const comment = '/** hello */';
-      parse(comment).should.equal('');
+      const line = '/** hello */';
+      parse(line).should.equal('');
+    });
+
+    it('should not continue end of line comments', () => {
+      const line = 'my javascript // my explanation';
+      parse(line).should.equal('');
+    });
+
+    it('should not continue block comments if a star is in a line', () => {
+      const line = 'var a = 2 * 4';
+      parse(line).should.equal('');
+    });
+
+    it('should not continue block comments if start has other things on the line', () => {
+      const line = 'var a = "/**"';
+      parse(line).should.equal('');
     });
   });
 });
