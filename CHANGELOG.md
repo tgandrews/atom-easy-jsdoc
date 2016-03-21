@@ -1,3 +1,6 @@
+## 4.3.1
+- Add beta flag notes to readme.
+
 ## 4.3.0
 - Add beta flag.
 - Beta now contains version using AST instead of regex. [PR](https://github.com/tgandrews/atom-easy-jsdoc/pull/12)
