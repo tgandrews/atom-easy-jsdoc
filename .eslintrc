@@ -1,0 +1,6 @@
+"extends":
+  - "defaults/configurations/airbnb/es6"
+"rules":
+  "keyword-spacing": 0
+"env":
+  "mocha": true
