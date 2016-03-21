@@ -1,4 +1,4 @@
-## 4.3.1
+## 4.4.0
 - Add beta flag notes to readme.
 
 ## 4.3.0
