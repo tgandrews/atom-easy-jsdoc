@@ -1,7 +1,7 @@
 {
   "name": "atom-easy-jsdoc",
   "main": "./lib/index",
-  "version": "4.3.0",
+  "version": "4.4.0",
   "description": "JSDoc style comments for javascript development",
   "activationCommands": {
     "atom-workspace": [
