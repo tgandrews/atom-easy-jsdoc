@@ -1,6 +1,19 @@
-"extends":
-  - "defaults/configurations/airbnb/es6"
-"rules":
-  "keyword-spacing": 0
-"env":
-  "mocha": true
+{
+  "extends": [
+    "defaults/configurations/airbnb/es6"
+  ],
+  "rules": {
+    "keyword-spacing": 0,
+    "require-jsdoc": [2, {
+      "require": {
+        "FunctionDeclaration": true,
+        "MethodDefinition": true,
+        "ClassDeclaration": true
+      }
+    }],
+    "valid-jsdoc": 2
+  },
+  "env": {
+    "mocha": true
+  }
+}
