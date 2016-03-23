@@ -45,6 +45,11 @@ describe('Comment Parser', () => {
       parse(line).should.equal('');
     });
 
+    it('should not continue a comment that is inside of a quote', () => {
+      const line = '*/\`';
+      parse(line).should.equal('');
+    });
+
     it('should continue comments where that have been indented multiple times', () => {
       parse('\t\t* hello').should.equal('* ');
       parse('\t\t/** hello').should.equal(' * ');
