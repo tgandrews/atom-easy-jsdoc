@@ -32,13 +32,13 @@ describe('Commentator', () => {
     });
 
     it('should line up parameter descriptions', () => {
-      const code = 'function helloWorld(a, longParam, c) {}';
+      const code = 'function helloWorld(ab, longParameter, c) {}';
       const doc = `/**
  * helloWorld - Description
  *
- * @param {type} a         Description
- * @param {type} longParam Description
- * @param {type} c         Description
+ * @param {type} ab            Description
+ * @param {type} longParameter Description
+ * @param {type} c             Description
  *
  * @returns {type} Description
  */`;
