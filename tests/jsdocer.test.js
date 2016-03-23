@@ -168,6 +168,20 @@ function helloWorld(a, b, c) {}
       comment(code).content.should.equal(doc);
     });
 
+    it('supports argument destructuring with defaults', () => {
+      const code = 'function helloWorld({ a = 1, b }) {}';
+      const doc = `/**
+ * helloWorld - Description
+ *
+ * @param {Object} Unknown       Description
+ * @param {type}   [Unknown.a=1] Description
+ * @param {type}   Unknown.b     Description
+ *
+ * @returns {type} Description
+ */`;
+      comment(code).content.should.equal(doc);
+    });
+
     it('supports rest arguments', () => {
       const code = 'function helloWorld(a, ...b) {}';
       const doc = `/**
