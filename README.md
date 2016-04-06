@@ -16,7 +16,7 @@ To add comments for any piece of code, position the cursor anywhere on the line 
  * @param  {type} argA description
  * @param  {type} argB description
  * @param  {type} argC description
- * @return {type}      description
+ * @returns {type}      description
  */
 function functionComment (argA, argB, argC) {
     return 'javadoc';
