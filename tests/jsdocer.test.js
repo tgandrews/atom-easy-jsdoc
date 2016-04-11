@@ -10,7 +10,7 @@ describe('Commentator', () => {
       const doc = `/**
  * helloWorld - Description
  *
- * @returns {type} Description
+ * @return {type} Description
  */`;
 
       comment(code).content.should.equal(doc);
@@ -25,7 +25,7 @@ describe('Commentator', () => {
  * @param {type} b Description
  * @param {type} c Description
  *
- * @returns {type} Description
+ * @return {type} Description
  */`;
 
       comment(code).content.should.equal(doc);
@@ -40,7 +40,7 @@ describe('Commentator', () => {
  * @param {type} longParameter Description
  * @param {type} c             Description
  *
- * @returns {type} Description
+ * @return {type} Description
  */`;
 
       comment(code).content.should.equal(doc);
@@ -59,7 +59,7 @@ function helloWorld(a, b, c) {}
  * @param {type} b Description
  * @param {type} c Description
  *
- * @returns {type} Description
+ * @return {type} Description
  */`;
 
       comment(code, 4).content.should.equal(doc);
@@ -78,7 +78,7 @@ function helloWorld(a, b, c) {}
  * @param {type} b Description
  * @param {type} c Description
  *
- * @returns {type} Description
+ * @return {type} Description
  */`;
 
       comment(code, 3).content.should.equal(doc);
@@ -104,7 +104,7 @@ function helloWorld(a, b, c) {}
        * @param {type} b Description
        * @param {type} c Description
        *
-       * @returns {type} Description
+       * @return {type} Description
        */`;
       comment(code).content.should.equal(doc);
     });
@@ -120,7 +120,7 @@ function helloWorld(a, b, c) {}
  * @param {type} b Description
  * @param {type} c Description
  *
- * @returns {type} Description
+ * @return {type} Description
  */`;
 
       comment(code).content.should.equal(doc);
@@ -135,7 +135,7 @@ function helloWorld(a, b, c) {}
  * @param {type} b Description
  * @param {type} c Description
  *
- * @returns {type} Description
+ * @return {type} Description
  */`;
 
       comment(code).content.should.equal(doc);
@@ -148,7 +148,7 @@ function helloWorld(a, b, c) {}
  *
  * @param {type} [a=something] Description
  *
- * @returns {type} Description
+ * @return {type} Description
  */`;
 
       comment(code).content.should.equal(doc);
@@ -163,7 +163,7 @@ function helloWorld(a, b, c) {}
  * @param {type}   Unknown.a Description
  * @param {type}   Unknown.b Description
  *
- * @returns {type} Description
+ * @return {type} Description
  */`;
       comment(code).content.should.equal(doc);
     });
@@ -176,9 +176,23 @@ function helloWorld(a, b, c) {}
  * @param {type}  a Description
  * @param {Array} b Description
  *
- * @returns {type} Description
+ * @return {type} Description
  */`;
       comment(code).content.should.equal(doc);
+    });
+  });
+
+  describe('Configuration', () => {
+    it('should use @returns when useReturns is enabled', () => {
+      const code = 'function helloWorld(a) {}';
+      const doc = `/**
+ * helloWorld - Description
+ *
+ * @param {type} a Description
+ *
+ * @returns {type} Description
+ */`;
+      comment(code, 0, true).content.should.equal(doc);
     });
   });
 });
