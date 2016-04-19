@@ -110,6 +110,41 @@ function helloWorld(a, b, c) {}
     });
   });
 
+  describe('variable function declarations', () => {
+    it('should pick up the name from the variable name', () => {
+      const code = 'var helloWorld = function () {}';
+      const doc = `/**
+ * helloWorld - Description
+ *
+ * @returns {type} Description
+ */`;
+
+      comment(code).content.should.equal(doc);
+    });
+
+    it('should pick up the name from the let variable', () => {
+      const code = 'let helloWorld = function () {}';
+      const doc = `/**
+ * helloWorld - Description
+ *
+ * @returns {type} Description
+ */`;
+
+      comment(code).content.should.equal(doc);
+    });
+
+    it('should pick up the name from the const variable', () => {
+      const code = 'const helloWorld = function () {}';
+      const doc = `/**
+ * helloWorld - Description
+ *
+ * @returns {type} Description
+ */`;
+
+      comment(code).content.should.equal(doc);
+    });
+  });
+
   describe('ES2015 features', () => {
     it('supports export', () => {
       const code = 'export function helloWorld(a, b, c) {}';
