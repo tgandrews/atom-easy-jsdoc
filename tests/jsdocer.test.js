@@ -116,7 +116,7 @@ function helloWorld(a, b, c) {}
       const doc = `/**
  * helloWorld - Description
  *
- * @returns {type} Description
+ * @return {type} Description
  */`;
 
       comment(code).content.should.equal(doc);
@@ -127,7 +127,7 @@ function helloWorld(a, b, c) {}
       const doc = `/**
  * helloWorld - Description
  *
- * @returns {type} Description
+ * @return {type} Description
  */`;
 
       comment(code).content.should.equal(doc);
@@ -138,7 +138,7 @@ function helloWorld(a, b, c) {}
       const doc = `/**
  * helloWorld - Description
  *
- * @returns {type} Description
+ * @return {type} Description
  */`;
 
       comment(code).content.should.equal(doc);
@@ -212,7 +212,7 @@ function helloWorld(a, b, c) {}
  * @param {type}   [Unknown.a=1] Description
  * @param {type}   Unknown.b     Description
  *
- * @returns {type} Description
+ * @return {type} Description
  */`;
       comment(code).content.should.equal(doc);
     });
