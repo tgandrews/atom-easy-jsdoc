@@ -17,7 +17,7 @@ describe('Comment Parser', () => {
 
     it('should continue a line comment', () => {
       const line = '// here is some comment';
-      parse(line).should.equal('// ');
+      parse(line).should.equal('');
     });
 
     it('should not continue after a block comment is ended', () => {
@@ -53,7 +53,6 @@ describe('Comment Parser', () => {
     it('should continue comments where that have been indented multiple times', () => {
       parse('\t\t* hello').should.equal('* ');
       parse('\t\t/** hello').should.equal(' * ');
-      parse('\t\t// hello').should.equal('// ');
     });
   });
 });
