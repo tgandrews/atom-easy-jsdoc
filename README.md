@@ -32,7 +32,7 @@ var a = 'A';
 
 ## Autocontinue
 
-Comments now are automatically continued if the user hits enter (new line event) while inside of a block (/**..etc.) or single line (//) comment.
+Comments now are automatically continued if the user hits enter (new line event) while inside of a block (/**..etc.).
 
 ## Beta version
 
