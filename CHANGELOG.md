@@ -1,3 +1,9 @@
+## 4.5.0
+- Disable line continuation
+- Support destructured parameters
+- Support variable declared functions
+- Allow for choosing `@return` or `@returns`
+
 ## 4.4.0
 - Add beta flag notes to readme.
 
