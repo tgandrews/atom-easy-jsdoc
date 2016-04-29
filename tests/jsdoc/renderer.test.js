@@ -18,6 +18,21 @@ describe('JSDoc renderer', () => {
       render(structure).should.equal(doc);
     });
 
+    it('should show the function description', () => {
+      const structure = {
+        name: 'helloWorld',
+        description: 'It says hello',
+        params: [],
+      };
+      const doc = `/**
+ * helloWorld - It says hello
+ *
+ * @return {type} Description
+ */`;
+
+      render(structure).should.equal(doc);
+    });
+
     describe('params', () => {
       it('should render basic parameter', () => {
         const structure = {
@@ -33,47 +48,46 @@ describe('JSDoc renderer', () => {
  */`;
         render(structure).should.equal(doc);
       });
-    });
 
-    it('should render the parameter type of Object', () => {
-      const structure = {
-        name: 'helloWorld',
-        params: [{ name: 'a', type: 'Object' }],
-      };
-      const doc = `/**
+      it('should render the parameter type of Object', () => {
+        const structure = {
+          name: 'helloWorld',
+          params: [{ name: 'a', type: 'Object' }],
+        };
+        const doc = `/**
  * helloWorld - Description
  *
  * @param {Object} a Description
  *
  * @return {type} Description
  */`;
-      render(structure).should.equal(doc);
-    });
+        render(structure).should.equal(doc);
+      });
 
-    it('should render the parameter type of Array', () => {
-      const structure = {
-        name: 'helloWorld',
-        params: [{ name: 'a', type: 'Array' }],
-      };
-      const doc = `/**
+      it('should render the parameter type of Array', () => {
+        const structure = {
+          name: 'helloWorld',
+          params: [{ name: 'a', type: 'Array' }],
+        };
+        const doc = `/**
  * helloWorld - Description
  *
  * @param {Array} a Description
  *
  * @return {type} Description
  */`;
-      render(structure).should.equal(doc);
-    });
+        render(structure).should.equal(doc);
+      });
 
-    it('should align types and names of parameters', () => {
-      const structure = {
-        name: 'helloWorld',
-        params: [
-          { name: 'a', type: 'verylongtype' },
-          { name: 'verylongname', type: 'short' },
-        ],
-      };
-      const doc = `/**
+      it('should align types and names of parameters', () => {
+        const structure = {
+          name: 'helloWorld',
+          params: [
+            { name: 'a', type: 'verylongtype' },
+            { name: 'verylongname', type: 'short' },
+          ],
+        };
+        const doc = `/**
  * helloWorld - Description
  *
  * @param {verylongtype} a            Description
@@ -81,24 +95,42 @@ describe('JSDoc renderer', () => {
  *
  * @return {type} Description
  */`;
-      render(structure).should.equal(doc);
-    });
+        render(structure).should.equal(doc);
+      });
 
-    it('should show default values', () => {
-      const structure = {
-        name: 'helloWorld',
-        params: [
-          { name: 'a', defaultValue: 'bob' },
-        ],
-      };
-      const doc = `/**
+      it('should show default values', () => {
+        const structure = {
+          name: 'helloWorld',
+          params: [
+            { name: 'a', defaultValue: 'bob' },
+          ],
+        };
+        const doc = `/**
  * helloWorld - Description
  *
  * @param {type} [a=bob] Description
  *
  * @return {type} Description
  */`;
-      render(structure).should.equal(doc);
+        render(structure).should.equal(doc);
+      });
+
+      it('should show parent name', () => {
+        const structure = {
+          name: 'helloWorld',
+          params: [
+            { name: 'a', parent: 'p' },
+          ],
+        };
+        const doc = `/**
+ * helloWorld - Description
+ *
+ * @param {type} p.a Description
+ *
+ * @return {type} Description
+ */`;
+        render(structure).should.equal(doc);
+      });
     });
   });
 });
