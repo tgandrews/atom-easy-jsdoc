@@ -33,6 +33,20 @@ describe('JSDoc renderer', () => {
       render(structure).should.equal(doc);
     });
 
+    it('should allow for different return keyword', () => {
+      const structure = {
+        name: 'helloWorld',
+        returns: { returns: true },
+      };
+
+      const doc = `/**
+ * helloWorld - Description
+ *
+ * @returns {type} Description
+ */`;
+      render(structure).should.equal(doc);
+    });
+
     describe('params', () => {
       it('should render basic parameter', () => {
         const structure = {
