@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "acorn": "^3.0.4",
-    "babel-preset-es2015": "^6.6.0"
+    "babel-preset-es2015": "^6.6.0",
+    "doctrine": "^1.2.1"
   },
   "devDependencies": {
     "babel": "^6.5.2",
@@ -32,8 +33,8 @@
     "mocha": "^2.4.5"
   },
   "scripts": {
-    "test": "npm run lint && npm run unit",
-    "unit": "mocha --compilers js:babel-core/register tests/**/*.test.js",
-    "lint": "eslint ."
+    "test": "npm run test:lint && npm run test:unit",
+    "test:unit": "mocha --compilers js:babel-core/register tests/**/*.test.js",
+    "test:lint": "eslint ."
   }
 }
