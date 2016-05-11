@@ -102,7 +102,9 @@ function anotherWorld() {}`;
         const code = "function helloWorld({ a = 1, b = 'hello' }) {}";
         const params = parse(code).params;
         params.should.contain({ name: 'a', parent: 'Unknown', defaultValue: 1, type: 'number' });
-        params.should.contain({ name: 'b', parent: 'Unknown', defaultValue: 'hello', type: 'string' });
+        params.should.contain({
+          name: 'b', parent: 'Unknown', defaultValue: 'hello', type: 'string',
+        });
       });
     });
   });
