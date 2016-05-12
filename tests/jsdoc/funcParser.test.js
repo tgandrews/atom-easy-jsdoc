@@ -42,6 +42,21 @@ function anotherWorld() {}`;
       (parse(code, 999) === null).should.equal(true);
     });
 
+    it('should get the name from variable declarations - var', () => {
+      const code = 'var helloWord = function () {};';
+      parse(code).name.should.equal('helloWord');
+    });
+
+    it('should get the name from variable declarations - let', () => {
+      const code = 'let helloWord = function () {};';
+      parse(code).name.should.equal('helloWord');
+    });
+
+    it('should get the name from variable declarations - const', () => {
+      const code = 'const helloWord = function () {};';
+      parse(code).name.should.equal('helloWord');
+    });
+
     describe('parameters', () => {
       it('should return the parameters', () => {
         const code = 'function helloWorld(a) {}';
