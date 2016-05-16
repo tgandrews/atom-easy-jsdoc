@@ -1,4 +1,4 @@
-import { parse } from '../../lib/jsdoc/funcParser';
+import { parse } from '../../../lib/jsdoc/funcParser';
 import chai from 'chai';
 
 chai.should();

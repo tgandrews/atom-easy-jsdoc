@@ -1,4 +1,4 @@
-import { render } from '../../lib/jsdoc/renderer';
+import { render } from '../../../lib/jsdoc/renderer';
 import chai from 'chai';
 
 chai.should();

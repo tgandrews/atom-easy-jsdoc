@@ -1,9 +1,9 @@
-import { comment } from '../lib/jsdocer';
+import { comment } from '../../lib/jsdocer';
 import chai from 'chai';
 
 chai.should();
 
-describe('Commentator', () => {
+describe('JS Docer', () => {
   describe('comment', () => {
     it('should be able to create a comment without params', () => {
       const code = 'function helloWorld () {}';

@@ -1,4 +1,4 @@
-import { parse } from '../lib/commentContinuer';
+import { parse } from '../../lib/commentContinuer';
 import chai from 'chai';
 
 chai.should();

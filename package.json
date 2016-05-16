@@ -33,8 +33,9 @@
     "mocha": "^2.4.5"
   },
   "scripts": {
-    "test": "npm run test:lint && npm run test:unit",
-    "test:unit": "mocha --compilers js:babel-core/register tests/**/*.test.js",
+    "test": "npm run test:lint && npm run test:unit && npm run test:integration",
+    "test:unit": "mocha --compilers js:babel-core/register tests/unit/**/*.test.js",
+    "test:integration": "mocha --compilers js:babel-core/register tests/integration/**/*.test.js",
     "test:lint": "eslint ."
   }
 }
