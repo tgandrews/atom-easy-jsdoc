@@ -146,5 +146,23 @@ describe('JSDoc renderer', () => {
         render(structure).should.equal(doc);
       });
     });
+
+    describe('location', () => {
+      it('should be indented to the column depth in the location', () => {
+        const structure = {
+          name: 'helloWorld',
+          params: [],
+          location: {
+            column: 4,
+          },
+        };
+        const doc = `    /**
+     * helloWorld - Description
+     *
+     * @return {type} Description
+     */`;
+        render(structure).should.equal(doc);
+      });
+    });
   });
 });
