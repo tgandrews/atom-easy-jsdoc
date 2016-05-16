@@ -62,6 +62,23 @@ function anotherWorld() {}`;
       parse(code).returns.should.deep.equal({ returns: false });
     });
 
+    describe('indentation', () => {
+      it('should be start of the function', () => {
+        const code = '    function helloWorld() {}';
+        parse(code).location.column.should.equal(4);
+      });
+
+      it('should be start of export keyword for exported functions', () => {
+        const code = '  export function hello() {}';
+        parse(code).location.column.should.equal(2);
+      });
+
+      it('should be start of export keyword for exported default functions', () => {
+        const code = '   export default function hello() {}';
+        parse(code).location.column.should.equal(3);
+      });
+    });
+
     describe('parameters', () => {
       it('should return the parameters', () => {
         const code = 'function helloWorld(a) {}';
