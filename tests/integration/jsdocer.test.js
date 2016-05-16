@@ -1,9 +1,9 @@
-import { comment } from '../lib/jsdocer';
+import { comment } from '../../lib/jsdocer';
 import chai from 'chai';
 
 chai.should();
 
-describe('Commentator', () => {
+describe('JS Docer', () => {
   describe('comment', () => {
     it('should be able to create a comment without params', () => {
       const code = 'function helloWorld () {}';
@@ -181,7 +181,7 @@ function helloWorld(a, b, c) {}
       const doc = `/**
  * helloWorld - Description
  *
- * @param {type} [a=something] Description
+ * @param {string} [a=something] Description
  *
  * @return {type} Description
  */`;
@@ -194,7 +194,7 @@ function helloWorld(a, b, c) {}
       const doc = `/**
  * helloWorld - Description
  *
- * @param {Object} Unknown   Description
+ * @param {object} Unknown   Description
  * @param {type}   Unknown.a Description
  * @param {type}   Unknown.b Description
  *
@@ -208,8 +208,8 @@ function helloWorld(a, b, c) {}
       const doc = `/**
  * helloWorld - Description
  *
- * @param {Object} Unknown       Description
- * @param {type}   [Unknown.a=1] Description
+ * @param {object} Unknown       Description
+ * @param {number} [Unknown.a=1] Description
  * @param {type}   Unknown.b     Description
  *
  * @return {type} Description
@@ -223,7 +223,7 @@ function helloWorld(a, b, c) {}
  * helloWorld - Description
  *
  * @param {type}  a Description
- * @param {Array} b Description
+ * @param {array} b Description
  *
  * @return {type} Description
  */`;
