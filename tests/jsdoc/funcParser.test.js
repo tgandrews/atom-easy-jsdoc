@@ -57,6 +57,11 @@ function anotherWorld() {}`;
       parse(code).name.should.equal('helloWord');
     });
 
+    it('should set a returns property', () => {
+      const code = 'function helloWorld() {}';
+      parse(code).returns.should.deep.equal({ returns: false });
+    });
+
     describe('parameters', () => {
       it('should return the parameters', () => {
         const code = 'function helloWorld(a) {}';
