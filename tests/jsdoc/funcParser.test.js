@@ -10,11 +10,6 @@ describe('Func parser', () => {
       parse(code).name.should.equal('helloWorld');
     });
 
-    it('should return the location', () => {
-      const code = 'function helloWorld() {}';
-      parse(code).location.should.deep.equal({ line: 0, column: 0 });
-    });
-
     it('should get the function for the line specified', () => {
       const code = `function helloWorld() {}
 
@@ -62,7 +57,7 @@ function anotherWorld() {}`;
       parse(code).returns.should.deep.equal({ returns: false });
     });
 
-    describe('indentation', () => {
+    describe('location', () => {
       it('should be start of the function', () => {
         const code = '    function helloWorld() {}';
         parse(code).location.column.should.equal(4);
@@ -76,6 +71,19 @@ function anotherWorld() {}`;
       it('should be start of export keyword for exported default functions', () => {
         const code = '   export default function hello() {}';
         parse(code).location.column.should.equal(3);
+      });
+
+      it('should be above the function location', () => {
+        const code = `
+function a() {}
+
+function b() {}`;
+        parse(code, 2).location.line.should.equal(1);
+      });
+
+      it('should be the line of the function if the function is on the first line', () => {
+        const code = 'function b() {}';
+        parse(code).location.line.should.equal(1);
       });
     });
 
