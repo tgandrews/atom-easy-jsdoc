@@ -52,6 +52,16 @@ function anotherWorld() {}`;
       parse(code).name.should.equal('helloWord');
     });
 
+    it('should get the function name from the property name being assigned to', () => {
+      const code = 'this.helloWorld = function () {}';
+      parse(code).name.should.equal('helloWorld');
+    });
+
+    it('should get the name when there is a space or not', () => {
+      const code = 'this.helloWorld = function(){}';
+      parse(code).name.should.equal('helloWorld');
+    });
+
     it('should set a returns property', () => {
       const code = 'function helloWorld() {}';
       parse(code).returns.should.deep.equal({ returns: false });
