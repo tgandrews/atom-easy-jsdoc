@@ -67,6 +67,13 @@ function anotherWorld() {}`;
       parse(code).returns.should.deep.equal({ returns: false });
     });
 
+    it('should ignore #! lines used in scripts', () => {
+      const code = `#!/bin/env node
+
+function bob(){}`;
+      parse(code, 3).name.should.equal('bob');
+    });
+
     describe('location', () => {
       it('should be start of the function', () => {
         const code = '    function helloWorld() {}';
