@@ -129,6 +129,23 @@ describe('JSDoc renderer', () => {
         render(structure).should.equal(doc);
       });
 
+      it('should show default false values', () => {
+        const structure = {
+          name: 'helloWorld',
+          params: [
+            { name: 'a', defaultValue: false },
+          ],
+        };
+        const doc = `/**
+ * helloWorld - Description
+ *
+ * @param {type} [a=false] Description
+ *
+ * @return {type} Description
+ */`;
+        render(structure).should.equal(doc);
+      });
+
       it('should show parent name', () => {
         const structure = {
           name: 'helloWorld',
