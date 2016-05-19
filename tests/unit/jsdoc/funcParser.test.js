@@ -134,6 +134,12 @@ function b() {}`;
         params.should.contain({ name: 'b', defaultValue: 'default', type: 'string' });
       });
 
+      it('should set the correct type for the deafult value - Boolean', () => {
+        const code = 'function helloWorld(b = false) {}';
+        const params = parse(code).params;
+        params.should.contain({ name: 'b', defaultValue: false, type: 'boolean' });
+      });
+
       it('should set the correct type for the default value - Object', () => {
         const code = 'function helloWorld(c = {}) {}';
         const params = parse(code).params;
