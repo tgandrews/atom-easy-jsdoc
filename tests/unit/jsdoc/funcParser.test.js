@@ -185,5 +185,21 @@ function b() {}`;
         });
       });
     });
+
+    describe('classes', () => {
+      it('should set type to be class when on class definition', () => {
+        const code = `class Foo {
+          constructor() {}
+        }`;
+        parse(code, 1).type.should.equal('class');
+      });
+
+      it('should set extended property to be class that was extended', () => {
+        const code = `class Foo extends Bar {
+          constructor() {}
+        }`;
+        parse(code, 1).extends.should.equal('Bar');
+      });
+    });
   });
 });
