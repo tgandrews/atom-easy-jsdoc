@@ -8,6 +8,7 @@ describe('JSDoc renderer', () => {
     it('should render the correct function name', () => {
       const structure = {
         name: 'helloWorld',
+        type: 'function',
       };
       const doc = `/**
  * helloWorld - Description
@@ -23,6 +24,7 @@ describe('JSDoc renderer', () => {
         name: 'helloWorld',
         description: 'It says hello',
         params: [],
+        type: 'function',
       };
       const doc = `/**
  * helloWorld - It says hello
@@ -37,6 +39,7 @@ describe('JSDoc renderer', () => {
       const structure = {
         name: 'helloWorld',
         returns: { returns: true },
+        type: 'function',
       };
 
       const doc = `/**
@@ -52,6 +55,7 @@ describe('JSDoc renderer', () => {
         const structure = {
           name: 'helloWorld',
           params: [{ name: 'a' }],
+          type: 'function',
         };
         const doc = `/**
  * helloWorld - Description
@@ -67,6 +71,7 @@ describe('JSDoc renderer', () => {
         const structure = {
           name: 'helloWorld',
           params: [{ name: 'a', type: 'Object' }],
+          type: 'function',
         };
         const doc = `/**
  * helloWorld - Description
@@ -82,6 +87,7 @@ describe('JSDoc renderer', () => {
         const structure = {
           name: 'helloWorld',
           params: [{ name: 'a', type: 'Array' }],
+          type: 'function',
         };
         const doc = `/**
  * helloWorld - Description
@@ -100,6 +106,7 @@ describe('JSDoc renderer', () => {
             { name: 'a', type: 'verylongtype' },
             { name: 'verylongname', type: 'short' },
           ],
+          type: 'function',
         };
         const doc = `/**
  * helloWorld - Description
@@ -118,6 +125,7 @@ describe('JSDoc renderer', () => {
           params: [
             { name: 'a', defaultValue: 'bob' },
           ],
+          type: 'function',
         };
         const doc = `/**
  * helloWorld - Description
@@ -135,6 +143,7 @@ describe('JSDoc renderer', () => {
           params: [
             { name: 'a', defaultValue: false },
           ],
+          type: 'function',
         };
         const doc = `/**
  * helloWorld - Description
@@ -152,6 +161,7 @@ describe('JSDoc renderer', () => {
           params: [
             { name: 'a', parent: 'p' },
           ],
+          type: 'function',
         };
         const doc = `/**
  * helloWorld - Description
@@ -172,12 +182,41 @@ describe('JSDoc renderer', () => {
           location: {
             column: 4,
           },
+          type: 'function',
         };
         const doc = `    /**
      * helloWorld - Description
      *
      * @return {type} Description
      */`;
+        render(structure).should.equal(doc);
+      });
+    });
+
+    describe('classes', () => {
+      it('render the class declaration with name and default description', () => {
+        const structure = {
+          name: 'Foo',
+          type: 'class',
+        };
+
+        const doc = `/**
+ * Foo - Description
+ */`;
+        render(structure).should.equal(doc);
+      });
+
+      it('renders the class being extended from as an @extends parameter', () => {
+        const structure = {
+          name: 'Foo',
+          extends: 'Bar',
+          type: 'class',
+        };
+
+        const doc = `/**
+ * Foo - Description
+ * @extends Bar
+ */`;
         render(structure).should.equal(doc);
       });
     });
