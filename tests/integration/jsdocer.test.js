@@ -229,6 +229,32 @@ function helloWorld(a, b, c) {}
  */`;
       comment(code).content.should.equal(doc);
     });
+
+    describe('classes', () => {
+      const code = `class Foo extends Bar {
+  Baz(a, b) {}
+}`;
+
+      it('supports definitions', () => {
+        const doc = `/**
+ * Foo - Description
+ * @extends Bar
+ */`;
+        comment(code, 1).content.should.equal(doc);
+      });
+
+      it('supports methods', () => {
+        const doc = `  /**
+   * Baz - Description
+   *
+   * @param {type} a Description
+   * @param {type} b Description
+   *
+   * @return {type} Description
+   */`;
+        comment(code, 2).content.should.equal(doc);
+      });
+    });
   });
 
   describe('Configuration', () => {
