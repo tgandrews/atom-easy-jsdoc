@@ -1,3 +1,8 @@
+## 4.6.0
+- Split JSDoc rendering and function parsing to improve test coverage.
+- Change from acorn to babylon parser to get better real code support.
+- Support `#!` to support scripts.
+
 ## 4.5.0
 - Disable line continuation
 - Support destructured parameters
