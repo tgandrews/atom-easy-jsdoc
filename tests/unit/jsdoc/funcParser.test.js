@@ -47,9 +47,19 @@ function anotherWorld() {}`;
       parse(code).name.should.equal('helloWord');
     });
 
+    it('should get the name from the variable declartion - let arrow', () => {
+      const code = 'let helloWorld = () => {};';
+      parse(code).name.should.equal('helloWorld');
+    });
+
     it('should get the name from variable declarations - const', () => {
       const code = 'const helloWord = function () {};';
       parse(code).name.should.equal('helloWord');
+    });
+
+    it('should get the name from the variable declartion - const arrow', () => {
+      const code = 'const helloWorld = () => {};';
+      parse(code).name.should.equal('helloWorld');
     });
 
     it('should get the function name from the property name being assigned to', () => {
