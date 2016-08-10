@@ -84,6 +84,15 @@ function bob(){}`;
       parse(code, 3).name.should.equal('bob');
     });
 
+    it('should be able to parse function expressions in objects', () => {
+      const code = `const obj = {
+        foo(arg) {
+          return arg;
+        }
+      };`;
+      parse(code, 2).name.should.equal('foo');
+    });
+
     describe('location', () => {
       it('should be start of the function', () => {
         const code = '    function helloWorld() {}';
