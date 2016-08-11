@@ -109,6 +109,16 @@ function bob(){}`;
         parse(code).location.column.should.equal(3);
       });
 
+      it('should be start of async keyword for async functions', () => {
+        const code = '  async function hello() {}';
+        parse(code).location.column.should.equal(2);
+      });
+
+      it('should be start of export keyword for exported async functions', () => {
+        const code = '  export async function hello() {}';
+        parse(code).location.column.should.equal(2);
+      });
+
       it('should be above the function location', () => {
         const code = `
 function a() {}
