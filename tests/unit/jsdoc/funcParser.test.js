@@ -227,5 +227,16 @@ function b() {}`;
         parse(code, 2).name.should.equal('constructor');
       });
     });
+
+    describe('errors', () => {
+      it('should throw a reasonable error when there is invalid JavaScript', () => {
+        const code = 'afoahfa afohafo^^h$"a aflajfl';
+        try {
+          parse(code);
+        } catch (e) {
+          e.message.should.match(/atom-easy-jsdoc expects valid JavaScript. Error parsing: .*/);
+        }
+      });
+    });
   });
 });
