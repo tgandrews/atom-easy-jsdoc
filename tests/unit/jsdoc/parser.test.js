@@ -14,5 +14,16 @@ describe('JSDoc Paser', () => {
       };
       parse(doc).should.eql(structure);
     });
+
+    it('should get the name', () => {
+      const doc = `/**
+ * helloWorld - Here is a description
+ */`;
+      const structure = {
+        name: 'helloWorld',
+        description: 'Here is a description',
+      };
+      parse(doc).should.eql(structure);
+    });
   });
 });
