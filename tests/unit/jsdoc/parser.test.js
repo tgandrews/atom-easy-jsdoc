@@ -91,5 +91,36 @@ describe('JSDoc Paser', () => {
 
       parse(doc).should.eql(structure);
     });
+
+    it('should extract multiple parameters', () => {
+      const doc = `/**
+ * helloWorld - Here is a description
+ *
+ * @param {string} a A does a thing
+ * @param {object} b B does something else
+ *
+ * @returns {type} Description
+ */`;
+      const structure = {
+        name: 'helloWorld',
+        description: 'Here is a description',
+        params: [{
+          type: 'string',
+          name: 'a',
+          description: 'A does a thing',
+        }, {
+          type: 'object',
+          name: 'b',
+          description: 'B does something else',
+        }],
+        returns: {
+          returns: true,
+          type: 'type',
+          description: 'Description',
+        },
+      };
+
+      parse(doc).should.eql(structure);
+    });
   });
 });
