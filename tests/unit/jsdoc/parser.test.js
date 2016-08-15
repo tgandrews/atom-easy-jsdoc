@@ -65,5 +65,31 @@ describe('JSDoc Paser', () => {
 
       parse(doc).should.eql(structure);
     });
+
+    it('should extract a parameter', () => {
+      const doc = `/**
+ * helloWorld - Here is a description
+ *
+ * @param {string} a A does a thing
+ *
+ * @returns {type} Description
+ */`;
+      const structure = {
+        name: 'helloWorld',
+        description: 'Here is a description',
+        params: [{
+          type: 'string',
+          name: 'a',
+          description: 'A does a thing',
+        }],
+        returns: {
+          returns: true,
+          type: 'type',
+          description: 'Description',
+        },
+      };
+
+      parse(doc).should.eql(structure);
+    });
   });
 });
