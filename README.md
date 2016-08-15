@@ -1,5 +1,6 @@
-# jsdoc package
+# Atom easy JSDoc package
 ![travis status](https://travis-ci.org/tgandrews/atom-easy-jsdoc.svg)
+![dependency status](https://david-dm.org/tgandrews/atom-easy-jsdoc.svg)
 
 Atom package for quick jsdoc comment generation.
 Forked from [Atom JS Doc by Craig Offutt](https://github.com/coffutt/atom-jsdoc)
