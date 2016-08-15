@@ -15,7 +15,7 @@ describe('JSDoc Paser', () => {
       parse(doc).should.eql(structure);
     });
 
-    it('should get the name', () => {
+    it('should get the description', () => {
       const doc = `/**
  * helloWorld - Here is a description
  */`;
@@ -23,6 +23,26 @@ describe('JSDoc Paser', () => {
         name: 'helloWorld',
         description: 'Here is a description',
       };
+      parse(doc).should.eql(structure);
+    });
+
+    it('should extract the return property', () => {
+      const doc = `/**
+ * helloWorld - Here is a description
+ *
+ * @return {type} Description
+ */`;
+
+      const structure = {
+        name: 'helloWorld',
+        description: 'Here is a description',
+        returns: {
+          returns: false,
+          type: 'type',
+          description: 'Description',
+        },
+      };
+
       parse(doc).should.eql(structure);
     });
   });
