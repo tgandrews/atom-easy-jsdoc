@@ -9,21 +9,15 @@ describe('JSDoc Paser', () => {
       const doc = `/**
  * helloWorld
  */`;
-      const structure = {
-        name: 'helloWorld',
-      };
-      parse(doc).should.eql(structure);
+
+      parse(doc).name.should.eql('helloWorld');
     });
 
     it('should get the description', () => {
       const doc = `/**
  * helloWorld - Here is a description
  */`;
-      const structure = {
-        name: 'helloWorld',
-        description: 'Here is a description',
-      };
-      parse(doc).should.eql(structure);
+      parse(doc).description.should.eql('Here is a description');
     });
 
     it('should extract the return property', () => {
@@ -33,17 +27,13 @@ describe('JSDoc Paser', () => {
  * @return {type} Description
  */`;
 
-      const structure = {
-        name: 'helloWorld',
-        description: 'Here is a description',
-        returns: {
-          returns: false,
-          type: 'type',
-          description: 'Description',
-        },
+      const returns = {
+        returns: false,
+        type: 'type',
+        description: 'Description',
       };
 
-      parse(doc).should.eql(structure);
+      parse(doc).returns.should.eql(returns);
     });
 
     it('should extract the return property', () => {
@@ -53,17 +43,13 @@ describe('JSDoc Paser', () => {
  * @returns {type} Description
  */`;
 
-      const structure = {
-        name: 'helloWorld',
-        description: 'Here is a description',
-        returns: {
-          returns: true,
-          type: 'type',
-          description: 'Description',
-        },
+      const returns = {
+        returns: true,
+        type: 'type',
+        description: 'Description',
       };
 
-      parse(doc).should.eql(structure);
+      parse(doc).returns.should.eql(returns);
     });
 
     it('should extract a parameter', () => {
@@ -74,22 +60,13 @@ describe('JSDoc Paser', () => {
  *
  * @returns {type} Description
  */`;
-      const structure = {
-        name: 'helloWorld',
-        description: 'Here is a description',
-        params: [{
-          type: 'string',
-          name: 'a',
-          description: 'A does a thing',
-        }],
-        returns: {
-          returns: true,
-          type: 'type',
-          description: 'Description',
-        },
-      };
+      const params = [{
+        type: 'string',
+        name: 'a',
+        description: 'A does a thing',
+      }];
 
-      parse(doc).should.eql(structure);
+      parse(doc).params.should.eql(params);
     });
 
     it('should extract multiple parameters', () => {
@@ -101,26 +78,17 @@ describe('JSDoc Paser', () => {
  *
  * @returns {type} Description
  */`;
-      const structure = {
-        name: 'helloWorld',
-        description: 'Here is a description',
-        params: [{
-          type: 'string',
-          name: 'a',
-          description: 'A does a thing',
-        }, {
-          type: 'object',
-          name: 'b',
-          description: 'B does something else',
-        }],
-        returns: {
-          returns: true,
-          type: 'type',
-          description: 'Description',
-        },
-      };
+      const params = [{
+        type: 'string',
+        name: 'a',
+        description: 'A does a thing',
+      }, {
+        type: 'object',
+        name: 'b',
+        description: 'B does something else',
+      }];
 
-      parse(doc).should.eql(structure);
+      parse(doc).params.should.eql(params);
     });
   });
 });
