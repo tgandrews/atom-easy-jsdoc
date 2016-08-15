@@ -45,5 +45,25 @@ describe('JSDoc Paser', () => {
 
       parse(doc).should.eql(structure);
     });
+
+    it('should extract the return property', () => {
+      const doc = `/**
+ * helloWorld - Here is a description
+ *
+ * @returns {type} Description
+ */`;
+
+      const structure = {
+        name: 'helloWorld',
+        description: 'Here is a description',
+        returns: {
+          returns: true,
+          type: 'type',
+          description: 'Description',
+        },
+      };
+
+      parse(doc).should.eql(structure);
+    });
   });
 });
