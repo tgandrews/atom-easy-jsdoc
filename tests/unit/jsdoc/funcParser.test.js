@@ -181,6 +181,12 @@ function b() {}`;
         params.should.contain({ name: 'd', defaultValue: '[]', type: 'array' });
       });
 
+      it('should set the correct type for the default value - Array', () => {
+        const code = 'function helloWorld(d = null) {}';
+        const params = parse(code).params;
+        params.should.contain({ name: 'd', defaultValue: null, type: 'null' });
+      });
+
       it('should support rest parameters setting the type as array', () => {
         const code = 'function helloWorld(...stuff) {}';
         const params = parse(code).params;

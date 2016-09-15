@@ -155,6 +155,24 @@ describe('JSDoc renderer', () => {
         render(structure).should.equal(doc);
       });
 
+      it('should show default null values', () => {
+        const structure = {
+          name: 'helloWorld',
+          params: [
+            { name: 'a', defaultValue: null },
+          ],
+          type: 'function',
+        };
+        const doc = `/**
+ * helloWorld - Description
+ *
+ * @param {type} [a=null] Description
+ *
+ * @return {type} Description
+ */`;
+        render(structure).should.equal(doc);
+      });
+
       it('should show parent name', () => {
         const structure = {
           name: 'helloWorld',
