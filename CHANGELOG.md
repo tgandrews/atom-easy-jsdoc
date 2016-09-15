@@ -1,3 +1,6 @@
+## 4.7.1
+- Fix issue with null default values
+
 ## 4.7.0
 - Add class support
 - Add async support
