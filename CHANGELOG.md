@@ -1,3 +1,6 @@
+## 4.8.0
+- Add JSX support
+
 ## 4.7.1
 - Fix issue with null default values
 
