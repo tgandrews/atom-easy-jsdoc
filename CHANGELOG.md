@@ -1,3 +1,6 @@
+## 4.9.0
+- Improve support for transformed JS including ES2017 and flow
+
 ## 4.8.0
 - Add JSX support
 
