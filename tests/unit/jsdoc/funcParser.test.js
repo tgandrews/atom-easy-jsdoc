@@ -232,6 +232,37 @@ function b() {}`;
         }`;
         parse(code, 2).name.should.equal('constructor');
       });
+
+      it('should not barf at class properties', () => {
+        const code = `class Foo {
+          static props = {}
+        }`;
+        parse(code, 2);
+      });
+    });
+
+    describe('future/non-standard JS features', () => {
+      it('object rest spread', () => {
+        const code = 'const foo = ({ a, ...rest }) => ({ a, ...rest });';
+        const result = parse(code, 1);
+        result.name.should.equal('foo');
+        result.params.should.contain({ name: 'rest', parent: 'Unknown', type: 'array' });
+      });
+
+      it('flow', () => {
+        const code = `
+        // @flow
+        function bar(x): string {
+          return x.length;
+        }
+        bar('Hello, world!');`;
+        parse(code, 2).name.should.equal('bar');
+      });
+
+      it('jsx', () => {
+        const code = 'const title = ({ name }) => <h1>{name}</h1>';
+        parse(code, 1).name.should.equal('title');
+      });
     });
 
     describe('errors', () => {
