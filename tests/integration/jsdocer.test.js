@@ -257,7 +257,7 @@ function helloWorld(a, b, c) {}
       });
 
       it('supports static methods', () => {
-        const doc = `/**
+        const doc = `  /**
    * @static Qux - Description
    *
    * @param {type} a Description
