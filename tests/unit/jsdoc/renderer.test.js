@@ -237,6 +237,21 @@ describe('JSDoc renderer', () => {
  */`;
         render(structure).should.equal(doc);
       });
+
+      it('renders class methods with their modifier keywords', () => {
+        const structure = {
+          name: 'helloStatic',
+          type: 'classMethod',
+          isStatic: true,
+        };
+
+        const doc = `/**
+ * @static helloStatic - Description
+ *
+ * @return {type} Description
+ */`;
+        render(structure).should.equal(doc);
+      });
     });
   });
 });

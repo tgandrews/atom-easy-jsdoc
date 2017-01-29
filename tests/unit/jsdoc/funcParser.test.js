@@ -226,11 +226,20 @@ function b() {}`;
         parse(code, 1).extends.should.equal('Bar');
       });
 
-      it('should create a normal function defintion for class methods', () => {
+      it('should create an extended function definition for class methods', () => {
         const code = `class Foo extends Bar {
           constructor() {}
         }`;
         parse(code, 2).name.should.equal('constructor');
+        parse(code, 2).type.should.equal('classMethod');
+        parse(code, 2).isStatic.should.equal(false);
+      });
+
+      it('should set the `isStatic` property for static class methods', () => {
+        const code = `class Foo extends Bar {
+          static myStaticMethod() {}
+        }`;
+        parse(code, 2).isStatic.should.equal(true);
       });
 
       it('should not barf at class properties', () => {

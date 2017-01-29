@@ -233,6 +233,7 @@ function helloWorld(a, b, c) {}
     describe('classes', () => {
       const code = `class Foo extends Bar {
   Baz(a, b) {}
+  static Qux(a, b) {}
 }`;
 
       it('supports definitions', () => {
@@ -253,6 +254,18 @@ function helloWorld(a, b, c) {}
    * @return {type} Description
    */`;
         comment(code, 2).content.should.equal(doc);
+      });
+
+      it('supports static methods', () => {
+        const doc = `  /**
+   * @static Qux - Description
+   *
+   * @param {type} a Description
+   * @param {type} b Description
+   *
+   * @return {type} Description
+   */`;
+        comment(code, 3).content.should.equal(doc);
       });
     });
   });
