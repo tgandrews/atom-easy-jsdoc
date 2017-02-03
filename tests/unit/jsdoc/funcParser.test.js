@@ -93,6 +93,21 @@ function bob(){}`;
       parse(code, 2).name.should.equal('foo');
     });
 
+    it('should support anonymous functions', () => {
+      const code = `
+      export default function () {
+        return 'bar';
+      }`;
+      const { name } = parse(code);
+      name.should.equal('Unknown');
+    });
+
+    it('should support anonymous arrow functions', () => {
+      const code = 'export default () => {};';
+      const result = parse(code);
+      result.name.should.equal('Unknown');
+    });
+
     describe('location', () => {
       it('should be start of the function', () => {
         const code = '    function helloWorld() {}';
