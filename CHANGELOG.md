@@ -1,3 +1,8 @@
+## 4.10.0
+- Add static keyword support by `@bkrem` [PR](https://github.com/tgandrews/atom-easy-jsdoc/pull/46)
+- Fix issues with call expressions as default values
+- Fix issues with exported anonymous functions
+
 ## 4.9.0
 - Improve support for transformed JS including ES2017 and flow
 
