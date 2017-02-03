@@ -217,11 +217,14 @@ function b() {}`;
       });
 
       it('should support destructured parameters with default values', () => {
-        const code = "function helloWorld({ a = 1, b = 'hello' }) {}";
+        const code = "function helloWorld({ a = 1, b = 'hello', c = func() }) {}";
         const params = parse(code).params;
         params.should.contain({ name: 'a', parent: 'Unknown', defaultValue: 1, type: 'number' });
         params.should.contain({
           name: 'b', parent: 'Unknown', defaultValue: 'hello', type: 'string',
+        });
+        params.should.contain({
+          name: 'c', parent: 'Unknown', defaultValue: 'Unknown', type: 'Unknown',
         });
       });
     });
