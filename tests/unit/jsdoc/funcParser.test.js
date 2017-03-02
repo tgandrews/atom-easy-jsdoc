@@ -202,6 +202,13 @@ function b() {}`;
         params.should.contain({ name: 'd', defaultValue: null, type: 'null' });
       });
 
+      it('should set type as unknown value when the default value is an identifier', () => {
+        const code = `const defaults = {};
+        function name(a = defaults) {}`;
+        const params = parse(code, 2).params;
+        params.should.contain({ name: 'a', defaultValue: 'Unknown', type: 'Unknown' });
+      });
+
       it('should support rest parameters setting the type as array', () => {
         const code = 'function helloWorld(...stuff) {}';
         const params = parse(code).params;
