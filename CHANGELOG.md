@@ -1,3 +1,7 @@
+## 4.11.0
+- Fix issue when assigning a variable as a default values
+- Installation documentation by `@bcruddy` [PR](https://github.com/tgandrews/atom-easy-jsdoc/pull/49)
+
 ## 4.10.0
 - Add static keyword support by `@bkrem` [PR](https://github.com/tgandrews/atom-easy-jsdoc/pull/46)
 - Fix issues with call expressions as default values
