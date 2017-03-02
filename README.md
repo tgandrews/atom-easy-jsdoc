@@ -5,6 +5,12 @@
 Atom package for quick jsdoc comment generation.
 Forked from [Atom JS Doc by Craig Offutt](https://github.com/coffutt/atom-jsdoc)
 
+## Install
+
+```bash
+apm install atom-easy-jsdoc
+```
+
 ## Usage
 
 Control-Shift-d or Control-Shift-j to add comment templates.
