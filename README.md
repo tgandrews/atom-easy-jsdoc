@@ -1,4 +1,6 @@
 # Atom easy JSDoc package
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/tgandrews/atom-easy-jsdoc.svg)](https://greenkeeper.io/)
 ![travis status](https://travis-ci.org/tgandrews/atom-easy-jsdoc.svg)
 ![dependency status](https://david-dm.org/tgandrews/atom-easy-jsdoc.svg)
 
