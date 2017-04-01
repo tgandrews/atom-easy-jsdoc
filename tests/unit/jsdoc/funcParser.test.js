@@ -114,8 +114,28 @@ function bob(){}`;
         parse(code).location.column.should.equal(4);
       });
 
+      it('should be start of the function', () => {
+        const code = '    const helloWorld = function () {}';
+        parse(code).location.column.should.equal(4);
+      });
+
+      it('should be start of the function', () => {
+        const code = '    const helloWorld = () => {}';
+        parse(code).location.column.should.equal(4);
+      });
+
       it('should be start of export keyword for exported functions', () => {
         const code = '  export function hello() {}';
+        parse(code).location.column.should.equal(2);
+      });
+
+      it('should be start of export keyword for exported arrow functions', () => {
+        const code = '  export const hello = () => {}';
+        parse(code).location.column.should.equal(2);
+      });
+
+      it('should be start of export keyword for exported arrow functions', () => {
+        const code = '  export const hello = function () {}';
         parse(code).location.column.should.equal(2);
       });
 
