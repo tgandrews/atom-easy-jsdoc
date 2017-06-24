@@ -29,7 +29,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-register": "^6.24.1",
     "chai": "^3.5.0",
-    "eslint": "^3.19.0",
+    "eslint": "^4.1.0",
     "eslint-config-defaults": "^10.0.0-1",
     "mocha": "^3.4.1"
   },
