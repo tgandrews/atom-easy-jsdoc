@@ -1,5 +1,5 @@
-import { parse } from '../../../lib/jsdoc/funcParser';
 import chai from 'chai';
+import parse from '../../../lib/jsdoc/funcParser';
 
 chai.should();
 
@@ -181,7 +181,7 @@ function b() {}`;
           { name: 'a' }, { name: 'b' }, { name: 'c' },
           { name: 'bobblyboo' }, { name: 'd' },
         ];
-        for (let i = 0; i < expected.length; ++i) {
+        for (let i = 0; i < expected.length; i += 1) {
           params[i].name.should.equal(expected[i].name);
         }
       });

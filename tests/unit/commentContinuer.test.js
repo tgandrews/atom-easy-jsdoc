@@ -1,5 +1,5 @@
-import { parse } from '../../lib/commentContinuer';
 import chai from 'chai';
+import parse from '../../lib/commentContinuer';
 
 chai.should();
 
@@ -46,7 +46,7 @@ describe('Comment Parser', () => {
     });
 
     it('should not continue a comment that is inside of a quote', () => {
-      const line = '*/\`';
+      const line = '*/`';
       parse(line).should.equal('');
     });
 

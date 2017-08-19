@@ -1,5 +1,5 @@
-import { comment } from '../../lib/jsdocer';
 import chai from 'chai';
+import comment from '../../lib/jsdocer';
 
 chai.should();
 

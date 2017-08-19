@@ -1,5 +1,5 @@
-import { render } from '../../../lib/jsdoc/renderer';
 import chai from 'chai';
+import render from '../../../lib/jsdoc/renderer';
 
 chai.should();
 
