@@ -1,7 +1,4 @@
-import { comment } from '../../lib/jsdocer';
-import chai from 'chai';
-
-chai.should();
+import comment from '../../lib/jsdocer';
 
 describe('JS Docer', () => {
   describe('comment', () => {

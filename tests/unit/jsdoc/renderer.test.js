@@ -1,7 +1,4 @@
-import { render } from '../../../lib/jsdoc/renderer';
-import chai from 'chai';
-
-chai.should();
+import render from '../../../lib/jsdoc/renderer';
 
 describe('JSDoc renderer', () => {
   describe('renderer', () => {
