@@ -1,3 +1,6 @@
+## 4.11.1
+- Update all dependencies
+
 ## 4.11.0
 - Fix issue when assigning a variable as a default values
 - Installation documentation by `@bcruddy` [PR](https://github.com/tgandrews/atom-easy-jsdoc/pull/49)
