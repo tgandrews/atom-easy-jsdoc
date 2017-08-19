@@ -1,7 +1,4 @@
-import chai from 'chai';
 import parse from '../../lib/commentContinuer';
-
-chai.should();
 
 describe('Comment Parser', () => {
   describe('parse', () => {
