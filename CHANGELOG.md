@@ -1,5 +1,13 @@
-## 4.11.1
-- Update all dependencies
+## 4.12.2
+- Fix issue where error thrown when active text editor is empty
+- Update dependencies
+
+## 4.12.1
+- Fix minor indentation bug
+
+## 4.12.0
+- Fix issue where `new Class()` was not supported as a default
+- Fix indentation issue
 
 ## 4.11.0
 - Fix issue when assigning a variable as a default values
