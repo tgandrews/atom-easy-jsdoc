@@ -1,3 +1,6 @@
+## 4.12.3
+- Fix issue when setting a default value from an object property.
+
 ## 4.12.2
 - Fix issue where error thrown when active text editor is empty
 - Update dependencies
