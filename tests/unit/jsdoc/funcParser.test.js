@@ -263,6 +263,14 @@ function b() {}`;
           name: 'c', parent: 'Unknown', defaultValue: 'Unknown', type: 'Unknown',
         });
       });
+
+      it('should support member expressions', () => {
+        const code = 'export const func = (baseUrl = config.apiUrl) => {}';
+        const params = parse(code).params;
+        params.should.include.something.that.deep.equal({
+          name: 'baseUrl', defaultValue: 'Unknown', type: 'Unknown',
+        });
+      });
     });
 
     describe('classes', () => {
