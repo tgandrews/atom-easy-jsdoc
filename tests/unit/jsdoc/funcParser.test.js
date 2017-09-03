@@ -255,7 +255,9 @@ function b() {}`;
       it('should support destructured parameters with default values', () => {
         const code = "function helloWorld({ a = 1, b = 'hello', c = func() }) {}";
         const params = parse(code).params;
-        params.should.include.something.that.deep.equals({ name: 'a', parent: 'Unknown', defaultValue: 1, type: 'number' });
+        params.should.include.something.that.deep.equals({
+          name: 'a', parent: 'Unknown', defaultValue: 1, type: 'number',
+        });
         params.should.include.something.that.deep.equals({
           name: 'b', parent: 'Unknown', defaultValue: 'hello', type: 'string',
         });
