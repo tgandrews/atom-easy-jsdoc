@@ -36,8 +36,8 @@
   },
   "scripts": {
     "test": "npm run test:lint && npm run test:unit && npm run test:integration",
-    "test:unit": "mocha --compilers js:babel-register tests/setup.js tests/unit/**/*.test.js",
-    "test:integration": "mocha --compilers js:babel-register tests/setup.js tests/integration/**/*.test.js",
+    "test:unit": "mocha --compilers js:babel-register tests/setup.js 'tests/unit/**/*.test.js'",
+    "test:integration": "mocha --compilers js:babel-register tests/setup.js 'tests/integration/**/*.test.js'",
     "test:lint": "eslint ."
   }
 }

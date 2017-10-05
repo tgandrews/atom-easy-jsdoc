@@ -51,5 +51,12 @@ describe('Comment Parser', () => {
       parse('\t\t* hello').should.equal('* ');
       parse('\t\t/** hello').should.equal(' * ');
     });
+
+    it('should handle no line parsed in', () => {
+      parse('').should.equal('');
+      parse(undefined).should.equal('');
+      parse(null).should.equal('');
+      parse(true).should.equal('');
+    });
   });
 });
