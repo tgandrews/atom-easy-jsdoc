@@ -1,3 +1,8 @@
+## 4.12.4
+- Fix issues where errors thrown in panels
+- Fix issues where continuing comments at top of files
+- Update dependencies
+
 ## 4.12.3
 - Fix issue when setting a default value from an object property.
 
