@@ -175,8 +175,11 @@ function b() {}`;
         const code = 'function helloWorld(a, b, c, bobblyboo, d) {}';
         const { params } = parse(code);
         const expected = [
-          { name: 'a' }, { name: 'b' }, { name: 'c' },
-          { name: 'bobblyboo' }, { name: 'd' },
+          { name: 'a' },
+          { name: 'b' },
+          { name: 'c' },
+          { name: 'bobblyboo' },
+          { name: 'd' },
         ];
         for (let i = 0; i < expected.length; i += 1) {
           params[i].name.should.equal(expected[i].name);
@@ -186,56 +189,102 @@ function b() {}`;
       it('should set the correct type for the default value - Number', () => {
         const code = 'function helloWorld(a = 1) {}';
         const { params } = parse(code);
-        params.should.include.something.that.deep.equals({ name: 'a', defaultValue: 1, type: 'number' });
+        params.should.include.something.that.deep.equals({
+          name: 'a',
+          defaultValue: 1,
+          type: 'number',
+        });
       });
 
       it('should set the correct type for the default value - String', () => {
         const code = "function helloWorld(b = 'default') {}";
         const { params } = parse(code);
-        params.should.include.something.that.deep.equals({ name: 'b', defaultValue: 'default', type: 'string' });
+        params.should.include.something.that.deep.equals({
+          name: 'b',
+          defaultValue: 'default',
+          type: 'string',
+        });
       });
 
       it('should set the correct type for the deafult value - Boolean', () => {
         const code = 'function helloWorld(b = false) {}';
         const { params } = parse(code);
-        params.should.include.something.that.deep.equals({ name: 'b', defaultValue: false, type: 'boolean' });
+        params.should.include.something.that.deep.equals({
+          name: 'b',
+          defaultValue: false,
+          type: 'boolean',
+        });
       });
 
       it('should set the correct type for the default value - Object', () => {
         const code = 'function helloWorld(c = {}) {}';
         const { params } = parse(code);
-        params.should.include.something.that.deep.equals({ name: 'c', defaultValue: '{}', type: 'object' });
+        params.should.include.something.that.deep.equals({
+          name: 'c',
+          defaultValue: '{}',
+          type: 'object',
+        });
       });
 
       it('should set the correct type for the default value - Array', () => {
         const code = 'function helloWorld(d = []) {}';
         const { params } = parse(code);
-        params.should.include.something.that.deep.equals({ name: 'd', defaultValue: '[]', type: 'array' });
+        params.should.include.something.that.deep.equals({
+          name: 'd',
+          defaultValue: '[]',
+          type: 'array',
+        });
       });
 
       it('should set the correct type for the default value - null', () => {
         const code = 'function helloWorld(d = null) {}';
         const { params } = parse(code);
-        params.should.include.something.that.deep.equals({ name: 'd', defaultValue: null, type: 'null' });
+        params.should.include.something.that.deep.equals({
+          name: 'd',
+          defaultValue: null,
+          type: 'null',
+        });
+      });
+
+      it('should set the correct type for the default value - arrow function', () => {
+        const code = 'function helloWorld(d = () => {}) {}';
+        const { params } = parse(code);
+        params.should.include.something.that.deep.equals({
+          name: 'd',
+          defaultValue: '() => {}',
+          type: 'function',
+        });
       });
 
       it('should set the correct type for the default value - func()', () => {
         const code = 'function helloWorld(d = func()) {}';
         const { params } = parse(code);
-        params.should.include.something.that.deep.equals({ name: 'd', defaultValue: 'Unknown', type: 'Unknown' });
+        params.should.include.something.that.deep.equals({
+          name: 'd',
+          defaultValue: 'Unknown',
+          type: 'Unknown',
+        });
       });
 
       it('should set the corret type for the default value - new Thing()', () => {
         const code = 'function helloWorld(d = new Thing()) {}';
         const { params } = parse(code);
-        params.should.include.something.that.deep.equals({ name: 'd', defaultValue: '{}', type: 'object' });
+        params.should.include.something.that.deep.equals({
+          name: 'd',
+          defaultValue: '{}',
+          type: 'object',
+        });
       });
 
       it('should set type as unknown value when the default value is an identifier', () => {
         const code = `const defaults = {};
         function name(a = defaults) {}`;
         const { params } = parse(code, 2);
-        params.should.include.something.that.deep.equals({ name: 'a', defaultValue: 'Unknown', type: 'Unknown' });
+        params.should.include.something.that.deep.equals({
+          name: 'a',
+          defaultValue: 'Unknown',
+          type: 'Unknown',
+        });
       });
 
       it('should support rest parameters setting the type as array', () => {
@@ -256,13 +305,22 @@ function b() {}`;
         const code = "function helloWorld({ a = 1, b = 'hello', c = func() }) {}";
         const { params } = parse(code);
         params.should.include.something.that.deep.equals({
-          name: 'a', parent: 'Unknown', defaultValue: 1, type: 'number',
+          name: 'a',
+          parent: 'Unknown',
+          defaultValue: 1,
+          type: 'number',
         });
         params.should.include.something.that.deep.equals({
-          name: 'b', parent: 'Unknown', defaultValue: 'hello', type: 'string',
+          name: 'b',
+          parent: 'Unknown',
+          defaultValue: 'hello',
+          type: 'string',
         });
         params.should.include.something.that.deep.equals({
-          name: 'c', parent: 'Unknown', defaultValue: 'Unknown', type: 'Unknown',
+          name: 'c',
+          parent: 'Unknown',
+          defaultValue: 'Unknown',
+          type: 'Unknown',
         });
       });
 
@@ -270,7 +328,9 @@ function b() {}`;
         const code = 'export const func = (baseUrl = config.apiUrl) => {}';
         const { params } = parse(code);
         params.should.include.something.that.deep.equal({
-          name: 'baseUrl', defaultValue: 'Unknown', type: 'Unknown',
+          name: 'baseUrl',
+          defaultValue: 'Unknown',
+          type: 'Unknown',
         });
       });
     });
@@ -319,7 +379,11 @@ function b() {}`;
         const code = 'const foo = ({ a, ...rest }) => ({ a, ...rest });';
         const result = parse(code, 1);
         result.name.should.equal('foo');
-        result.params.should.include.something.that.deep.equals({ name: 'rest', parent: 'Unknown', type: 'array' });
+        result.params.should.include.something.that.deep.equals({
+          name: 'rest',
+          parent: 'Unknown',
+          type: 'array',
+        });
       });
 
       it('flow', () => {
